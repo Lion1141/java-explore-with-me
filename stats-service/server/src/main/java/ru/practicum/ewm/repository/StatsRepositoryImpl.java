@@ -15,6 +15,7 @@ import java.util.List;
 public class StatsRepositoryImpl implements StatsRepository {
     private final JdbcTemplate jdbcTemplate;
     private final ViewStatsMapper viewStatsMapper;
+
     @Override
     public void saveHit(EndpointHit hit) {
         jdbcTemplate.update("INSERT INTO stats (app, uri, ip, create) VALUES (?, ?, ?, ?)",
