@@ -38,6 +38,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=ewm
       - SPRING_DATASOURCE_PASSWORD=ewm
       - STATS_SERVER_URL=http://server:9090
+      # Это строка для тестов в Postman
+      - TZ=Asia/Vladivostok
 
   main-db:
     image: postgres:16.1
