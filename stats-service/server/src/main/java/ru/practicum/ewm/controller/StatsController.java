@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.EndpointHit;
 import ru.practicum.ewm.ViewStats;
-import ru.practicum.ewm.ViewStatsRequest;
+import ru.practicum.ewm.ViewsStatsRequest;
 import ru.practicum.ewm.service.StatsService;
 
 import java.time.LocalDateTime;
@@ -39,7 +39,7 @@ public class StatsController {
             uris = Collections.emptyList();
         }
         List<ViewStats> results = service.getViewStatsList(
-                ViewStatsRequest.builder()
+                ViewsStatsRequest.builder()
                         .start(start)
                         .end(end)
                         .uris(uris)

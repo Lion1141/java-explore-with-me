@@ -8,5 +8,5 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class EWMMainServiceApp {
     public static void main(String[] args) {
         SpringApplication.run(EWMMainServiceApp.class, args);
-}
+    }
 }

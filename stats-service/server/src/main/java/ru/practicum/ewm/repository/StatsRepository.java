@@ -1,17 +1,15 @@
 package ru.practicum.ewm.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.practicum.ewm.EndpointHit;
 import ru.practicum.ewm.ViewStats;
-import ru.practicum.ewm.ViewStatsRequest;
+import ru.practicum.ewm.ViewsStatsRequest;
 
 import java.util.List;
 
-@Repository
 public interface StatsRepository {
     void saveHit(EndpointHit hit);
 
-    List<ViewStats> getStats(ViewStatsRequest request);
+    List<ViewStats> getStats(ViewsStatsRequest request);
 
-    List<ViewStats> getUniqueStats(ViewStatsRequest request);
+    List<ViewStats> getUniqueStats(ViewsStatsRequest request);
 }

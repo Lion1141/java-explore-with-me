@@ -34,7 +34,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorResponse handleOtherException(final Throwable e) {
+    public ErrorResponse handleOtherException(final Exception e) {
         log.warn("Получен статус 500 SERVER_ERROR {}", e.getMessage(), e);
         return new ErrorResponse(
                 e.getMessage()

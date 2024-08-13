@@ -2,12 +2,12 @@ package ru.practicum.ewm.service;
 
 import ru.practicum.ewm.EndpointHit;
 import ru.practicum.ewm.ViewStats;
-import ru.practicum.ewm.ViewStatsRequest;
+import ru.practicum.ewm.ViewsStatsRequest;
 
 import java.util.List;
 
 public interface StatsService {
     void saveHit(EndpointHit hit);
 
-    List<ViewStats> getViewStatsList(ViewStatsRequest request);
+    List<ViewStats> getViewStatsList(ViewsStatsRequest request);
 }

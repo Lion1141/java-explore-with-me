@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.practicum.ewm.EndpointHit;
 import ru.practicum.ewm.ViewStats;
-import ru.practicum.ewm.ViewStatsRequest;
+import ru.practicum.ewm.ViewsStatsRequest;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -18,12 +18,12 @@ public class StatsRepositoryImpl implements StatsRepository {
 
     @Override
     public void saveHit(EndpointHit hit) {
-        jdbcTemplate.update("INSERT INTO stats (app, uri, ip, create) VALUES (?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO stats (app, uri, ip, created) VALUES (?, ?, ?, ?)",
                 hit.getApp(), hit.getUri(), hit.getIp(), Timestamp.valueOf(hit.getTimestamp()));
     }
 
     @Override
-    public List<ViewStats> getStats(ViewStatsRequest request) {
+    public List<ViewStats> getStats(ViewsStatsRequest request) {
         String query = "SELECT app, uri, COUNT (ip) AS hits FROM stats WHERE (created >= ? AND created <= ?) ";
         if (!request.getUris().isEmpty()) {
             query += createUrisQuery(request.getUris());
@@ -33,7 +33,7 @@ public class StatsRepositoryImpl implements StatsRepository {
     }
 
     @Override
-    public List<ViewStats> getUniqueStats(ViewStatsRequest request) {
+    public List<ViewStats> getUniqueStats(ViewsStatsRequest request) {
         String query = "SELECT app, uri, COUNT (DISTINCT ip) AS hits FROM stats WHERE (created >= ? AND created <= ?) ";
         if (!request.getUris().isEmpty()) {
             query += createUrisQuery(request.getUris());
