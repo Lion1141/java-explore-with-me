@@ -2,13 +2,17 @@ package ru.practicum.ewm.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Hibernate;
 import ru.practicum.ewm.model.enums.EventStatus;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Entity(name = "events")
 public class Event {
@@ -45,4 +49,21 @@ public class Event {
     private EventStatus eventStatus;
     @Column(name = "title", nullable = false, length = 120)
     private String title;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+            return false;
+        }
+        Event event = (Event) o;
+        return id != null && Objects.equals(id, event.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
