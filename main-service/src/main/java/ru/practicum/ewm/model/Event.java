@@ -58,7 +58,7 @@ public class Event {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
             return false;
         }
-        Event event= (Event) o;
+        Event event = (Event) o;
         return id != null && Objects.equals(id, event.id);
     }
 
