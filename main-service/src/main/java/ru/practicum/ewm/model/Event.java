@@ -2,15 +2,14 @@ package ru.practicum.ewm.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 import ru.practicum.ewm.model.enums.EventStatus;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Builder
 @Entity(name = "events")
 public class Event {
