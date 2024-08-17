@@ -24,9 +24,7 @@ public class SearchEventParamsAdmin {
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime rangeEnd;
     @PositiveOrZero
-    @Builder.Default
     private Integer from = 0;
     @Positive
-    @Builder.Default
     private Integer size = 10;
 }

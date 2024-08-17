@@ -10,8 +10,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class User {
     @Id
