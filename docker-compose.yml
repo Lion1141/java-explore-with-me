@@ -14,7 +14,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=ewm
       - JAVA_OPTS=-Djdk.httpclient.HttpClient.log=errors,requests
         # Это строка для тестов в Postman
-      - TZ=Asia/Vladivostok
+      #- TZ=Asia/Vladivostok
 
   statdb:
     image: postgres:16.1
@@ -42,7 +42,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=ewm
       - SERVICES_STATSSERVICE_URI=http://stat-server:9090
       # Это строка для тестов в Postman
-      - TZ=Asia/Vladivostok
+      #- TZ=Asia/Vladivostok
     #   - JAVA_OPTS=-Djdk.httpclient.HttpClient.log=errors,requests
 
   ewmdb:
