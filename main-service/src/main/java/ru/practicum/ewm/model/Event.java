@@ -6,10 +6,9 @@ import ru.practicum.ewm.model.enums.EventStatus;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity(name = "events")
 public class Event {
