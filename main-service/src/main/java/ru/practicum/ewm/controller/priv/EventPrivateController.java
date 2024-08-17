@@ -68,7 +68,7 @@ public class EventPrivateController {
         return eventService.getAllParticipationRequestsFromEventByOwner(userId, eventId);
     }
 
-    @PatchMapping("/{eventId}/requests/")
+    @PatchMapping("/{eventId}/requests")
     public EventRequestStatusUpdateResult updateStatusRequestFromOwner(@PathVariable(value = "userId") @Min(1) Long userId,
                                                                        @PathVariable(value = "eventId") @Min(1) Long eventId,
                                                                        @RequestBody EventRequestStatusUpdateRequest inputUpdate) {
