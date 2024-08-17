@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.dto.EventFullDto;
-import ru.practicum.ewm.dto.SearchEventParamsAdmin;
-import ru.practicum.ewm.dto.UpdateEventAdminRequest;
-import ru.practicum.ewm.service.EventService;
+import ru.practicum.ewm.dto.event.EventFullDto;
+import ru.practicum.ewm.dto.event.SearchEventParamsAdmin;
+import ru.practicum.ewm.dto.request.UpdateEventAdminRequest;
+import ru.practicum.ewm.service.interf.EventService;
 
 import java.util.List;
 

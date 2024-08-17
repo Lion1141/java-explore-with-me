@@ -21,13 +21,10 @@ public class SearchEventParams {
     private LocalDateTime rangeStart;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime rangeEnd;
-    @Builder.Default
     private Boolean onlyAvailable = false;
     private String sort;
     @PositiveOrZero
-    @Builder.Default
     private Integer from = 0;
     @Positive
-    @Builder.Default
     private Integer size = 10;
 }

@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 
 @RestControllerAdvice
 @Slf4j
 public class ErrorHandler {
 
-    @ExceptionHandler
+    @ExceptionHandler({NotFoundException.class, NoResourceFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiError handleNotFoundException(NotFoundException e) {
         log.debug("Получен статус 404 NOT_FOUND {}", e.getMessage(), e);
@@ -54,7 +55,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ApiError handlerOtherException(Throwable e) {
+    public ApiError handlerOtherException(Exception e) {
         log.warn("Получен статус 500 SERVER_ERROR {}", e.getMessage(), e);
         return ApiError.builder()
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.toString())
